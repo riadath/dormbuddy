@@ -13,9 +13,11 @@ import java.util.List;
 public class RoomPost {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "post_id")
     private long id;
 
     private String userEmail;
+    private String contactNumber; //phone number
     private String title; // initial description
     private String description; //detailed description
     private String keyFeatures;
@@ -28,17 +30,17 @@ public class RoomPost {
     private boolean isToiletAttached;
     private boolean isKitchenAvailable;
 
-    @ManyToOne(targetEntity = Dimension.class)
-    @JoinColumn(name="dimension_fk",referencedColumnName = "id")
+    @ManyToOne(targetEntity = Dimension.class, cascade = CascadeType.ALL)
+    @JoinColumn(name="dimension_fk",referencedColumnName = "dimension_id")
     Dimension dimension;
 
-    @ManyToOne(targetEntity = Address.class)
-    @JoinColumn(name="address_fk",referencedColumnName = "id")
+    @ManyToOne(targetEntity = Address.class,cascade = CascadeType.ALL)
+    @JoinColumn(name="address_fk",referencedColumnName = "address_id")
     Address address;
 
 
     @ManyToMany(targetEntity = Image.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "image_fk", referencedColumnName = "id")
+    @JoinColumn(name = "image_fk", referencedColumnName = "post_id")
     List<Image> images;
 
 }

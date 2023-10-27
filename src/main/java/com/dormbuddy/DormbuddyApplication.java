@@ -21,7 +21,7 @@ public class DormbuddyApplication {
         SpringApplication.run(DormbuddyApplication.class, args);
     }
 
-//    @Bean
+    @Bean
     CommandLineRunner run(RoomPostRepository roomPostRepository) {
         return args -> {
             roomPostRepository.save(
@@ -33,14 +33,14 @@ public class DormbuddyApplication {
                             "description1",
                             "keyFeatures1",
                             "googleMapLink1",
-                            1,
-                            1,
+                            12,
+                            121,
                             2,
-                            1000,
-                            true,
+                            100,
                             true,
                             false,
-                            new Dimension(1,12,28),
+                            false,
+                            new Dimension(1121,12,28),
                             new Address(55,"street","city","state"),
                             List.of(new Image(1,"imagePath1"))
                     ));

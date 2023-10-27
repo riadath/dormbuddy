@@ -21,7 +21,7 @@ public class DormbuddyApplication {
         SpringApplication.run(DormbuddyApplication.class, args);
     }
 
-    @Bean
+//    @Bean
     CommandLineRunner run(RoomPostRepository roomPostRepository) {
         return args -> {
             roomPostRepository.save(

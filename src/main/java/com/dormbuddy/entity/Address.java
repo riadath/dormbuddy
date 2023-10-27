@@ -16,9 +16,9 @@ public class Address {
     @Column(name = "address_id")
     private long id;
 
+    private String house;
     private String street;
     private String city;
-    private String state;
 }
 
 

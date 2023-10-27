@@ -41,11 +41,9 @@ public class SearchService {
             if (street.contains(location) || city.contains(location) || house.contains(location)) {
                 if (post.getRent() <= rent) {
                     if (post.getDimension().getArea() >= roomArea) {
-                        if(kitchen == post.getKitchenAvailable()){
-                            if(toilet == post.getToiletAttached()){
-                                toReturn.add(post);
-                            }
-                        }
+                        if(kitchen && !post.getKitchenAvailable())continue;
+                        if(toilet && !post.getToiletAttached())continue;
+                        toReturn.add(post);
                     }
                 }
             }

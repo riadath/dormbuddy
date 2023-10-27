@@ -27,4 +27,9 @@ public class RoomPostController {
         return ResponseEntity.ok(roomPostService.getAllRoomPosts());
     }
 
+    @DeleteMapping("delete/{id}")
+    public ResponseEntity<?> deleteRoomPost(@PathVariable Long id) {
+        return ResponseEntity.ok(roomPostService.deleteRoomPost(id));
+    }
+
 }

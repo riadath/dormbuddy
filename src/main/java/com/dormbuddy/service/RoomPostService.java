@@ -21,4 +21,10 @@ public class RoomPostService {
     public Optional<List<RoomPost>> getAllRoomPosts() {
         return roomPostRepository.findAllBy();
     }
+
+    public RoomPost deleteRoomPost(Long id) {
+        RoomPost toDelete = roomPostRepository.findById(id).get();
+        roomPostRepository.delete(toDelete);
+        return toDelete;
+    }
 }

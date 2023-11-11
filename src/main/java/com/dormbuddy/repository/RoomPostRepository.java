@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface RoomPostRepository extends JpaRepository<RoomPost, Long> {
     Optional<List<RoomPost>> findAllBy();
 
-
 }

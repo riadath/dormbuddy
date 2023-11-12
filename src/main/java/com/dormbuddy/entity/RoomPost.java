@@ -40,7 +40,7 @@ public class RoomPost {
 
 
     @ManyToMany(targetEntity = Image.class, cascade = CascadeType.ALL)
-    @JoinColumn(name = "image_fk", referencedColumnName = "post_id")
+    @JoinColumn(name = "image_fk", referencedColumnName = "")
     List<Image> imageList;
 
     public boolean getToiletAttached() {

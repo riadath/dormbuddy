@@ -27,4 +27,18 @@ public class RoomPostService {
         roomPostRepository.delete(toDelete);
         return toDelete;
     }
+
+    public Optional<List<RoomPost>> getFeaturedRoomPosts() {
+        Optional<List<RoomPost>> allPostsByRent = roomPostRepository.findAllByRentDesc();
+        //select the top 6 posts
+        if (allPostsByRent.isEmpty()) return Optional.empty();
+
+        if (allPostsByRent.get().size() < 6) return allPostsByRent;
+
+        return Optional.of(allPostsByRent.get().subList(0, 6));
+    }
+
+    public Optional<List<RoomPost>> getAllRoomPostsByEmail(String email) {
+        return roomPostRepository.findAllByUserEmail(email);
+    }
 }

@@ -21,12 +21,13 @@ public class DormbuddyApplication {
         SpringApplication.run(DormbuddyApplication.class, args);
     }
 
-    @Bean
+//    @Bean
     CommandLineRunner run(RoomPostRepository roomPostRepository) {
         return args -> {
             roomPostRepository.save(
                     new RoomPost(
                             1,
+                            "97k2340932804",
                             "hello@gmail.com",
                             "017923820",
                             "title1",
@@ -37,7 +38,7 @@ public class DormbuddyApplication {
                             121,
                             2,
                             100,
-                            true,
+                            "male",
                             false,
                             false,
                             new Dimension(1121,12,28),

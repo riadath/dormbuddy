@@ -15,18 +15,18 @@ public class RoomPost {
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "post_id")
     private long id;
-
+    private String postIdHash;
     private String userEmail;
-    private String contactNumber; //phone number
+    private String userContact; //phone number
     private String title; // initial description
     private String description; //detailed description
     private String keyFeatures;
-    private String googleMapLink;
+    private String mapLink;
     private int vacancy; //amount of slots left (1/2/3 people etc.)
     private int capacity; //max capacity of the room
     private int windowCount;
     private int rent; // rent paid by each person in that room (not the entire room)
-    private boolean prefGender; //0 is male , 1 is female (it's not a spectrum)
+    private String prefGender; //0 is male , 1 is female (it's not a spectrum)
     private boolean toiletAttached;
     private boolean kitchenAvailable;
 
@@ -41,7 +41,7 @@ public class RoomPost {
 
     @ManyToMany(targetEntity = Image.class, cascade = CascadeType.ALL)
     @JoinColumn(name = "image_fk", referencedColumnName = "post_id")
-    List<Image> images;
+    List<Image> imageList;
 
     public boolean getToiletAttached() {
         return toiletAttached;

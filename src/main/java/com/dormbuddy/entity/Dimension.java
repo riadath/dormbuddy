@@ -16,10 +16,10 @@ public class Dimension {
     private long id;
 
 
-    //height and width are in feet
+    //length and width are in feet
     private int width;
-    private int height;
+    private int length;
     public int getArea(){
-        return width*height;
+        return width*length;
     }
 }

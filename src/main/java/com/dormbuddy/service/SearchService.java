@@ -36,7 +36,6 @@ public class SearchService {
             String city = post.getAddress().getCity().toLowerCase().trim();
             String house = post.getAddress().getHouse().toLowerCase().trim();
 
-            System.out.println(post);
 
             if (street.contains(location) || city.contains(location) || house.contains(location)) {
                 if (post.getRent() <= rent) {

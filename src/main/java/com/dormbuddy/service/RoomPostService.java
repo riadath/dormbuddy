@@ -22,8 +22,8 @@ public class RoomPostService {
         return roomPostRepository.findAllBy();
     }
 
-    public RoomPost deleteRoomPost(Long id) {
-        RoomPost toDelete = roomPostRepository.findById(id).get();
+    public RoomPost deleteRoomPost(String postIdHas) {
+        RoomPost toDelete = roomPostRepository.findByPostIdHash(postIdHas);
         roomPostRepository.delete(toDelete);
         return toDelete;
     }

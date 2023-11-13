@@ -15,11 +15,12 @@ public class SearchController {
 
     @Autowired
     private SearchService searchService;
-    @GetMapping("api/v1/search")
+    @PostMapping("api/v1/search")
     public ResponseEntity<List<RoomPost>> search(
             @RequestBody SearchEntity searchEntity
             ) {
-        System.out.println(searchEntity);
+
+//        System.out.println("Search Entity: " + searchEntity);
         return ResponseEntity.ok(searchService.search(searchEntity));
     }
 }

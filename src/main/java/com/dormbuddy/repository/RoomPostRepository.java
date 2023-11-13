@@ -15,4 +15,7 @@ public interface RoomPostRepository extends JpaRepository<RoomPost, Long> {
     Optional<List<RoomPost>> findAllByRentDesc();
 
     Optional<List<RoomPost>> findAllByUserEmail(String email);
+
+
+    RoomPost findByPostIdHash(String postIdHash);
 }

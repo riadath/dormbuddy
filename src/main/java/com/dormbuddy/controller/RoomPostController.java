@@ -8,8 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("api/v1/roomPost")
-@CrossOrigin("http://localhost:3000")
-
+@CrossOrigin(origins = "http://localhost:3000")
 public class RoomPostController {
     @Autowired
     private RoomPostService roomPostService;
@@ -34,8 +33,9 @@ public class RoomPostController {
         return ResponseEntity.ok(roomPostService.getAllRoomPostsByEmail(email));
     }
 
-    @DeleteMapping("delete/{postIdHash}")
-    public ResponseEntity<?> deleteRoomPost(@PathVariable String postIdHash) {
+    @DeleteMapping("delete")
+    public ResponseEntity<?> deleteRoomPost(@RequestParam String postIdHash) {
+        System.out.println("deleteRoomPost: " + postIdHash);
         return ResponseEntity.ok(roomPostService.deleteRoomPost(postIdHash));
     }
 

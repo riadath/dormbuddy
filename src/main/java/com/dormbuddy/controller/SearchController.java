@@ -12,7 +12,6 @@ import java.util.List;
 @RestController
 @CrossOrigin(origins = "http://localhost:3000")
 public class SearchController {
-
     @Autowired
     private SearchService searchService;
     @PostMapping("api/v1/search")

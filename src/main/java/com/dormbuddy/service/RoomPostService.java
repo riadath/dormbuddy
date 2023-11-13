@@ -22,9 +22,11 @@ public class RoomPostService {
         return roomPostRepository.findAllBy();
     }
 
-    public RoomPost deleteRoomPost(String postIdHas) {
-        RoomPost toDelete = roomPostRepository.findByPostIdHash(postIdHas);
-        roomPostRepository.delete(toDelete);
+    public Optional<List<RoomPost>> deleteRoomPost(String postIdHas) {
+        System.out.println("delete in service: " + postIdHas);
+        Optional<List<RoomPost>> toDelete = roomPostRepository.findByPostIdHash(postIdHas);
+        if(toDelete.isEmpty()) return Optional.empty();
+        roomPostRepository.deleteAll(toDelete.get());
         return toDelete;
     }
 
